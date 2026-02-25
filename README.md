@@ -146,6 +146,7 @@ More details about ActionNormalizer, ResetWrapper, and TimeLimitWrapper can be f
 * **1.2** complete the file named pref_learn.py, write your code to recover the reward function for the robot food-serving task using the [APReL](https://github.com/Stanford-ILIAD/APReL) library:
   * The human teacher will provide feedback whenever given a comparison between two     trajectories chosen from these 30 trajectories. 
     And the way they provide feedback is by watching the clips of the chosen trajectories and give their preference using keyboard.
+  * Experiment with different `acquisition_function` options. Include in your report which one worked best for you and why.
   * utilize APReL to write your code to recover the reward function based on your designed feature function and generated clips.
     More specifically, the human teacher is allowed to give feedback on 10 comparison queries in total. More code-wise procedures can be found in simple.py of APReL.
   * save the learned weights for your designed reward feature as a csv file named "feature_weights" under the directory of [saved](./saved/).
