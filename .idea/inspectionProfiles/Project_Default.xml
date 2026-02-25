@@ -1,0 +1,26 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="social-interaction-cloud" />
+          <option value="pre-commit" />
+          <option value="isort" />
+          <option value="black" />
+          <option value="yamllint" />
+          <option value="openai" />
+          <option value="pydub" />
+          <option value="ffmpeg-python" />
+          <option value="soundfile" />
+          <option value="orjson" />
+          <option value="anyio" />
+          <option value="pathlib" />
+          <option value="whisper" />
+          <option value="naoqi-python-sdk" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
