@@ -1,4 +1,4 @@
-# HIAL-2025 Course Project
+# HIAL-2026 Course Project
 
 ## Introduction
 In this group project, you will utilize preference-based learning and imitation learning methods to train control policies for a robot manipulation task. 
