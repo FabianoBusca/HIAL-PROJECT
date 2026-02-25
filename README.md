@@ -139,44 +139,44 @@ More details about ActionNormalizer, ResetWrapper, and TimeLimitWrapper can be f
 
 ## Project Assignment
 ### 1. Recover reward function via preference-based learning
-* **1.1** complete the file named banana.py under the directory of [alg](./alg/).
+* **1.1** Complete the file named banana.py under the directory of [alg](./alg/).
   * design your own features of the recovered reward and implement the feature function given an episodic trajectory
   * complete the code to generate 30 video clips of episodic trajectories, including 20 clips of given expert demos and 10 clips of trajectories with random actions.
 
-* **1.2** complete the file named pref_learn.py, write your code to recover the reward function for the robot food-serving task using the [APReL](https://github.com/Stanford-ILIAD/APReL) library:
+* **1.2** Complete the file named pref_learn.py, write your code to recover the reward function for the robot food-serving task using the [APReL](https://github.com/Stanford-ILIAD/APReL) library:
   * The human teacher will provide feedback whenever given a comparison between two     trajectories chosen from these 30 trajectories. 
     And the way they provide feedback is by watching the clips of the chosen trajectories and give their preference using keyboard.
   * Experiment with different `acquisition_function` options. Include in your report which one worked best for you and why.
-  * utilize APReL to write your code to recover the reward function based on your designed feature function and generated clips.
+  * Utilize APReL to write your code to recover the reward function based on your designed feature function and generated clips.
     More specifically, the human teacher is allowed to give feedback on 10 comparison queries in total. More code-wise procedures can be found in simple.py of APReL.
-  * save the learned weights for your designed reward feature as a csv file named "feature_weights" under the directory of [saved](./saved/).
+  * Save the learned weights for your designed reward feature as a csv file named "feature_weights" under the directory of [saved](./saved/).
 
 ### 2. Policy training via RL from Demonstrations with the learned reward function
-* create a file named policy_learn.py under the directory of [alg](./alg/).
-* in this policy_learn.py, write your code to learn robot control policy using RL from Demonstrations with your learned reward function:
-  * choose your favorite RLfD method (e.g., AWAC) as the underlying policy learning algorithm
-  * load the given 20 expert demonstrations into the demo replay buffer of RLfD before policy training starts
-  * train your policy episodically with your learned reward function. More specifically, write your code to realize a training loop where
+* Create a file named policy_learn.py under the directory of [alg](./alg/).
+* In this policy_learn.py, write your code to learn robot control policy using RL from Demonstrations with your learned reward function:
+  * Choose your favorite RLfD method (e.g., AWAC) as the underlying policy learning algorithm
+  * Load the given 20 expert demonstrations into the demo replay buffer of RLfD before policy training starts
+  * Train your policy episodically with your learned reward function. More specifically, write your code to realize a training loop where
     the robot first roll-outs its current policy for one episode, recovers the rewards for this episode given this roll-out trajectory, saves the trajectory into the
     replay buffer, then updates the control policy
-  * train your policy for a maximum of 500k environment steps, and save your policy models every 1k steps during the training process
-  * to report your results, plot the policy learning curve during the training process every 1k steps, with x-axis as the number of environment steps and
+  * Train your policy for a maximum of 500k environment steps, and save your policy models every 1k steps during the training process
+  * To report your results, plot the policy learning curve during the training process every 1k steps, with x-axis as the number of environment steps and
     y-axis as the **average success rate** of your trained policy at the current step. 
     
     For every data point, you should get the value of it by calculating the average success rate across 10 test runs. 
     And for each test run, you should:
-    * randomly initialize the task environment (i.e., env.reset())
-    * roll out your saved policy model of the current training step
-    * check whether the robot succeeded or not for the current test run
+    * Randomly initialize the task environment (i.e., env.reset())
+    * Roll out your saved policy model of the current training step
+    * Check whether the robot succeeded or not for the current test run
 
 ### Deliverable checklist
-* the script of banana.py for recording the clips
-* the script of pref_learn.py for reward learning
-* the script of policy_learn.py for policy learning
-* the `./saved/` folder
-* **(important)** another script named policy_test.py under the directory of [alg](./alg/):
-  * to facilitate TAs to check the performance of your final trained policy, we kindly ask you to write two simple functions named load_final_policy() and get_policy_action() inside the script of policy_test.py:
-  * for the function of load_final_policy(), it should be in the format of:
+* The script of banana.py for recording the clips
+* The script of pref_learn.py for reward learning
+* The script of policy_learn.py for policy learning
+* The `./saved/` folder
+* **(Important)** Another script named policy_test.py under the directory of [alg](./alg/):
+  * To facilitate TAs to check the performance of your final trained policy, we kindly ask you to write two simple functions named load_final_policy() and get_policy_action() inside the script of policy_test.py:
+  * For the function of load_final_policy(), it should be in the format of:
     ```
     def load_final_policy(path_to_saved_policy):
       """
@@ -192,7 +192,7 @@ More details about ActionNormalizer, ResetWrapper, and TimeLimitWrapper can be f
       # your code here
     
     ```
-  * for the function of get_policy_action(), it should be in the format of:
+  * For the function of get_policy_action(), it should be in the format of:
     ```
     def get_policy_action(state, saved_policy_model):
       """
@@ -212,11 +212,11 @@ More details about ActionNormalizer, ResetWrapper, and TimeLimitWrapper can be f
 
 ### (Optional) Extra credits:
 * Realize online policy training with RLfD and preference-based learning, and report your results. In other words, there will be no two separate phases for training. Instead, during every episode of the learning loop, the robot will:
-  * ask for human feedback on a certain amount of trajectory-pair comparisons
-  * recover a new reward function for the current training episode
-  * roll out the current policy and recover the rewards based on just learned reward function
-  * update the policy
-  * add the rolled out trajectory to the trajectory set of the preference-based learning, and generate the video clip of it for future comparison
+  * Ask for human feedback on a certain amount of trajectory-pair comparisons
+  * Recover a new reward function for the current training episode
+  * Roll out the current policy and recover the rewards based on just learned reward function
+  * Update the policy
+  * Add the rolled out trajectory to the trajectory set of the preference-based learning, and generate the video clip of it for future comparison
   
 
 ## Useful Resources
